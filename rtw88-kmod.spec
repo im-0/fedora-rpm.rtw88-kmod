@@ -10,7 +10,7 @@
 
 Name:           %{kmod_name}-kmod
 Version:        0.%{commitdate}git%{shortcommit}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Backported Realtek rtw88 PCIe, SDIO and USB Wi-Fi kernel modules
 
 License:        GPL-2.0-only
