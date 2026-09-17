@@ -1,0 +1,26 @@
+From 42c607b22975b8ac828f3eec4b84508dd3578c9a Mon Sep 17 00:00:00 2001
+From: Ivan Mironov <mironov.ivan@gmail.com>
+Date: Thu, 17 Sep 2026 13:51:18 +0200
+Subject: [PATCH] Disable USB 2.0 -> USB 3.0 switch by default
+
+Some RTL88* USB WiFi dongles are not stable when used with USB 3.0.
+---
+ rtw88.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rtw88.conf b/rtw88.conf
+index 62d7440dfb76..ea1b6987115f 100644
+--- a/rtw88.conf
++++ b/rtw88.conf
+@@ -4,7 +4,7 @@
+ # Link: https://github.com/lwfinger/rtw88
+ #
+ 
+-options rtw_usb switch_usb_mode=y
++options rtw_usb switch_usb_mode=n
+ 
+ options rtw_pci disable_msi=n
+ options rtw_pci disable_aspm=n
+-- 
+2.55.0
+
