@@ -74,7 +74,7 @@ done
 
 
 %install
-install -Dpm0644 rtw88-%{commit}/rtw88.conf %{buildroot}%{_modprobedir}/rtw88.conf
+install -Dpm0644 rtw88-%{commit}/rtw88.conf %{buildroot}%{_sysconfdir}/modprobe.d/rtw88.conf
 
 for kernel_version in %{?kernel_versions}; do
     kver=${kernel_version%%___*}
@@ -86,7 +86,7 @@ done
 
 
 %files -n %{pkg_kmod_name}-common
-%config(noreplace) %{_modprobedir}/rtw88.conf
+%config(noreplace) %{_sysconfdir}/modprobe.d/rtw88.conf
 
 
 %changelog
