@@ -10,15 +10,41 @@
 
 Name:           %{kmod_name}-kmod
 Version:        0.%{commitdate}git%{shortcommit}
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Backported Realtek rtw88 PCIe, SDIO and USB Wi-Fi kernel modules
 
 License:        GPL-2.0-only
 URL:            https://github.com/lwfinger/rtw88
 Source0:        %{url}/archive/%{commit}/rtw88-%{commit}.tar.gz
 
-Patch0:         0001-wifi-rtw88-usb-fix-beacon-download-failure-in-AP-mod.patch
-Patch1:         0001-Disable-USB-2.0-USB-3.0-switch-by-default.patch
+Patch0:         0001-Disable-USB-2.0-USB-3.0-switch-by-default.patch
+
+Patch0010:      0010-txq-fix-memory-leak-in-push-skb.patch
+Patch0020:      0020-usb-fix-memory-leaks-on-write-failure.patch
+Patch0030:      0030-mac80211-fix-out-of-bounds-cam-write.patch
+Patch0040:      0040-rx-add-rx-descriptor-validation.patch
+Patch0050:      0050-fw-check-edcca-th-for-null.patch
+Patch0060:      0060-tx-report-long-timeout-for-non-pcie.patch
+Patch0100:      0100-usb-route-bmc-frames-high-queue-dtim.patch
+Patch0110:      0110-usb-bound-after-dtim-queue.patch
+Patch0120:      0120-usb-filter-after-dtim-frames.patch
+Patch0130:      0130-mac80211-widen-atim-window-ap.patch
+Patch0200:      0200-8822c-skip-rf-path-c-in-phy-status.patch
+Patch0210:      0210-8822b-skip-rf-path-c-in-phy-status.patch
+Patch0220:      0220-8822c-use-fsleep-for-dpk-delays.patch
+Patch0300:      0300-usb-quiet-mode-switch-transfer-errors.patch
+Patch0310:      0310-main-firmware-mac-address-fallback.patch
+Patch0320:      0320-debugfs-avoid-vzalloc-zero-rsvd-page.patch
+Patch0400:      0400-usb-download-rsvd-page-synchronously.patch
+Patch0410:      0410-8822b-relax-etsi-edcca-2g.patch
+Patch0420:      0420-usb-drop-rx-before-device-started.patch
+Patch0430:      0430-rx-do-not-trust-claimed-decryption.patch
+Patch0500:      0500-mac80211-program-channel-on-start.patch
+Patch0510:      0510-main-restore-control-frame-filter-on-start.patch
+Patch0520:      0520-fw-download-beacon-from-rsvd-page.patch
+Patch0530:      0530-mac80211-channel-switch-in-ap-mode.patch
+Patch0900:      0900-txpower-honour-iw-set-txpower.patch
+Patch0910:      0910-pci-old-fix-dma-format-32bit.patch
 
 %global AkmodsBuildRequires gcc, make, patch, elfutils-libelf-devel, xz, bc, redhat-rpm-config, systemd-rpm-macros
 BuildRequires:  kmodtool
